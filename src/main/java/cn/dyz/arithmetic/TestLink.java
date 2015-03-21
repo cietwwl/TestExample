@@ -5,19 +5,53 @@ public class TestLink {
 	public static void main(String[] args) {
 		LinkNode a1 = new LinkNode(1);
 		LinkNode a2 = new LinkNode(2);
-		LinkNode a3 = new LinkNode(3);
-		LinkNode a4 = new LinkNode(4);
-		LinkNode a5 = new LinkNode(5);
+		LinkNode a3 = new LinkNode(7);
+		LinkNode a4 = new LinkNode(8);
+		LinkNode a5 = new LinkNode(9);
 		a1.setNext(a2);
 		a2.setNext(a3);
 		a3.setNext(a4);
 		a4.setNext(a5);
 		
-		printLink(a1);
+		LinkNode b1 = new LinkNode(2);
+		LinkNode b2 = new LinkNode(3);
+		LinkNode b3 = new LinkNode(4);
+		LinkNode b4 = new LinkNode(5);
+		LinkNode b5 = new LinkNode(6);
+		b1.setNext(b2);
+		b2.setNext(b3);
+		b3.setNext(b4);
+		b4.setNext(b5);
 		
-		LinkNode result = reverseLink(a1);
+		//printLink(a1);
+		
+		LinkNode result = mergeLink(a1,b1);
 		
 		printLink(result);
+	}
+	
+	/**
+	 * 合并链表
+	 * @param link1
+	 * @param link2
+	 * @return
+	 */
+	public static LinkNode mergeLink(LinkNode link1,LinkNode link2){
+		if(link1==null){
+			return link2;
+		}
+		if(link2==null){
+			return link1;
+		}
+		LinkNode newRoot = null;
+		if(link1.getValue()<link2.getValue()){
+			newRoot=link1;
+			newRoot.setNext(mergeLink(link1.getNextNode(), link2));
+		}else{
+			newRoot=link2;
+			newRoot.setNext(mergeLink(link1, link2.getNextNode()));
+		}
+		return newRoot;
 	}
 
 	/**
