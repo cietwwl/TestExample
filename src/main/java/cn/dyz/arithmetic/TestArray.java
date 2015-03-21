@@ -16,13 +16,34 @@ public class TestArray {
 		                };
 		System.out.println(findNum(array, 6));*/
 		
-		int[] a = {1,3,5,7,0,0,0,0,0};
-		int[] b = {3,6,8,9};
-		mergeSortedArray(a, b);
+		int[] a = {1,3,8,5,7,0,0,4,0,0,2};
+		adjustArray(a, 0, a.length-1);
 		for(int tmp:a){
 			System.out.println(tmp);
 		}
 	}
+	
+	/**
+	 * 是所有奇数位于偶数前面
+	 * @param array
+	 */
+	static void adjustArray(int[] array,int startIndex,int endIndex){
+		int tmp = array[startIndex];
+		while(startIndex<endIndex){
+			while(endIndex>startIndex && isEven(array[endIndex]))
+				endIndex--;
+			array[startIndex]=array[endIndex];
+			while(startIndex<endIndex && !isEven(array[startIndex]))
+				startIndex++;
+			array[endIndex]=array[startIndex];
+		}
+		array[startIndex]=tmp;
+	}
+	
+	static boolean isEven(int data){
+		return (data & 1)==0;
+	}
+	
 	/**
 	 * 合并两个有序的数组，合并完以后也是有序的。a数组有足够的空间存放b
 	 * @param a

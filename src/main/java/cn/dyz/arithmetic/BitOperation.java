@@ -24,9 +24,15 @@ public class BitOperation {
 		
 		//System.out.println(theChangeTimes(5, 3));
 		
-		System.out.println(testValue(4, 4));
+		//System.out.println(testValue(4, 4));
+		//System.out.println(~-1);//位操作中，符号位也会有对应的操作
+		
+		System.out.println(isEven(102));
 	}
 	
+	public static boolean isEven(int num){
+		return (num & 1)==0;
+	}
 	
 	/**
 	 * 求一个数的n次方  ,只考虑性能，没有考虑特殊情况
@@ -52,7 +58,12 @@ public class BitOperation {
 	}
 	
 	
-	
+	/**
+	 * 求两个数的二进制中位数不同的个数
+	 * @param a
+	 * @param b
+	 * @return
+	 */
 	public static int theChangeTimes(int a,int b){
 		int tmp = a^b;
 		int times=0;

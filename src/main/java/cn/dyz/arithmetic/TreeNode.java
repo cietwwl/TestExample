@@ -1,26 +1,26 @@
 package cn.dyz.arithmetic;
 
-public class Node {
+public class TreeNode {
 
 	private int value;
-	private Node left;
-	private Node rgiht;
+	private TreeNode left;
+	private TreeNode rgiht;
 	public int getValue() {
 		return value;
 	}
 	public void setValue(int value) {
 		this.value = value;
 	}
-	public Node getLeft() {
+	public TreeNode getLeft() {
 		return left;
 	}
-	public void setLeft(Node left) {
+	public void setLeft(TreeNode left) {
 		this.left = left;
 	}
-	public Node getRgiht() {
+	public TreeNode getRgiht() {
 		return rgiht;
 	}
-	public void setRgiht(Node rgiht) {
+	public void setRgiht(TreeNode rgiht) {
 		this.rgiht = rgiht;
 	}
 	
