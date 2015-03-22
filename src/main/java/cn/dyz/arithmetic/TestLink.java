@@ -17,7 +17,7 @@ public class TestLink {
 		LinkNode b2 = new LinkNode(3);
 		LinkNode b3 = new LinkNode(4);
 		LinkNode b4 = new LinkNode(5);
-		LinkNode b5 = new LinkNode(6);
+		LinkNode b5 = new LinkNode(7);
 		b1.setNext(b2);
 		b2.setNext(b3);
 		b3.setNext(b4);
@@ -25,9 +25,44 @@ public class TestLink {
 		
 		//printLink(a1);
 		
-		LinkNode result = mergeLink(a1,b1);
+		LinkNode result = mergeLinkUseWhile(a1,b1);
 		
 		printLink(result);
+	}
+	
+	
+	public static LinkNode mergeLinkUseWhile(LinkNode link1,LinkNode link2){
+		LinkNode newLink = null;
+		LinkNode curr = null;
+		
+		while(link1!=null && link2!=null){
+			if(link1.getValue()<link2.getValue()){
+				if(newLink==null){
+					newLink=link1;
+					curr=link1;
+				}else{
+					curr.setNext(link1);
+					curr=curr.getNextNode();
+				}
+				
+				link1=link1.getNextNode();
+			}else{
+				if(newLink==null){
+					newLink=link2;
+					curr=link2;
+				}else{
+					curr.setNext(link2);
+					curr=curr.getNextNode();
+				}
+				link2=link2.getNextNode();
+			}
+			
+		}
+		if(link1==null)
+			curr.setNext(link2);
+		if(link2==null)
+			curr.setNext(link1);
+		return newLink;
 	}
 	
 	/**

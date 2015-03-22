@@ -6,17 +6,22 @@ public class StackAndQueue {
 
 	public static void main(String[] args) {
 		
-		StackQueue<String> queue = new StackQueue<String>();
+		//StackQueue<String> queue = new StackQueue<String>();
+		StackWithMin queue = new StackWithMin();
+		queue.push(3);
+		queue.push(4);
+		queue.push(2);
+		queue.push(1);
 		
-		queue.put("asdf");
-		queue.put("dfs");
-		queue.put("dfs3");
-		queue.put("dfs4");
-		
+		System.out.println("min:"+queue.min());
 		System.out.println(queue.pop());
+		System.out.println("min:"+queue.min());
 		System.out.println(queue.pop());
+		System.out.println("min:"+queue.min());
 		System.out.println(queue.pop());
+		System.out.println("min:"+queue.min());
 		System.out.println(queue.pop());
+		System.out.println("min:"+queue.min());
 		
 	}
 	
