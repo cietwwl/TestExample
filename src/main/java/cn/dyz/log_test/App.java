@@ -12,6 +12,17 @@ public class App
 	private static final Logger loger = LoggerFactory.getLogger(App.class);
     public static void main( String[] args )
     {
-        loger.info( "Hello World!",3 );
+    	int i = 1;
+        while(true){
+        	
+        	try {
+				Thread.sleep(1000);
+				loger.info("hello-"+i);
+				i++;
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+        	
+        }
     }
 }
